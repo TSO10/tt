@@ -1,0 +1,10 @@
+C:\Users\IT\Dropbox\VEDK\VEDK_Dashboard\bin\VEDK_Dashboard.dll.config
+C:\Users\IT\Dropbox\VEDK\VEDK_Dashboard\bin\VEDK_Dashboard.dll
+C:\Users\IT\Dropbox\VEDK\VEDK_Dashboard\bin\VEDK_Dashboard.pdb
+C:\Users\IT\Dropbox\VEDK\VEDK_Dashboard\bin\Data.Layer.dll
+C:\Users\IT\Dropbox\VEDK\VEDK_Dashboard\bin\WebHelper.dll
+C:\Users\IT\Dropbox\VEDK\VEDK_Dashboard\bin\Data.Layer.pdb
+C:\Users\IT\Dropbox\VEDK\VEDK_Dashboard\bin\WebHelper.pdb
+C:\Users\IT\Dropbox\VEDK\VEDK_Dashboard\obj\Release\VEDK_Dashboard.csprojResolveAssemblyReference.cache
+C:\Users\IT\Dropbox\VEDK\VEDK_Dashboard\obj\Release\VEDK_Dashboard.dll
+C:\Users\IT\Dropbox\VEDK\VEDK_Dashboard\obj\Release\VEDK_Dashboard.pdb

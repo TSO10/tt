@@ -1,0 +1,7 @@
+C:\Users\IT\Dropbox\VEDK\Data.Layer\bin\Release\Data.Layer.dll.config
+C:\Users\IT\Dropbox\VEDK\Data.Layer\bin\Release\Data.Layer.dll
+C:\Users\IT\Dropbox\VEDK\Data.Layer\bin\Release\Data.Layer.pdb
+C:\Users\IT\Dropbox\VEDK\Data.Layer\bin\Release\EntityFramework.dll
+C:\Users\IT\Dropbox\VEDK\Data.Layer\obj\Release\Data.Layer.csprojResolveAssemblyReference.cache
+C:\Users\IT\Dropbox\VEDK\Data.Layer\obj\Release\Data.Layer.dll
+C:\Users\IT\Dropbox\VEDK\Data.Layer\obj\Release\Data.Layer.pdb

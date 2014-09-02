@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VEDKModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="VEDKEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="VEDK_ProductCategory" EntityType="VEDKModel.VEDK_ProductCategory" />
+    <EntitySet Name="VEDK_ProductGroup" EntityType="VEDKModel.VEDK_ProductGroup" />
+    <EntitySet Name="VEDK_Region" EntityType="VEDKModel.VEDK_Region" />
+    <EntitySet Name="VEDK_SupplierTbl" EntityType="VEDKModel.VEDK_SupplierTbl" />
+    <AssociationSet Name="FK_VEDK_ProductCategory_VEDK_ProductGroup" Association="VEDKModel.FK_VEDK_ProductCategory_VEDK_ProductGroup">
+      <End Role="VEDK_ProductGroup" EntitySet="VEDK_ProductGroup" />
+      <End Role="VEDK_ProductCategory" EntitySet="VEDK_ProductCategory" />
+    </AssociationSet>
+    <EntitySet Name="VEDK_AgreementTbl" EntityType="VEDKModel.VEDK_AgreementTbl" />
+    <EntitySet Name="VEDK_AgreementIDTbl" EntityType="VEDKModel.VEDK_AgreementIDTbl" />
+    <AssociationSet Name="FK_VEDK_AgreementIDTbl_VEDK_ProductCategory" Association="VEDKModel.FK_VEDK_AgreementIDTbl_VEDK_ProductCategory">
+      <End Role="VEDK_ProductCategory" EntitySet="VEDK_ProductCategory" />
+      <End Role="VEDK_AgreementIDTbl" EntitySet="VEDK_AgreementIDTbl" />
+    </AssociationSet>
+    <EntitySet Name="MillLogs" EntityType="VEDKModel.MillLog" />
+    <EntitySet Name="EnerginetDKDatas" EntityType="VEDKModel.EnerginetDKData" />
+    <EntitySet Name="VEDK_Users" EntityType="VEDKModel.VEDK_User" />
+    <EntitySet Name="VEDK_Password" EntityType="VEDKModel.VEDK_Password" />
+    <EntitySet Name="VEDK_Product" EntityType="VEDKModel.VEDK_Product" />
+    <AssociationSet Name="FK_VEDK_Product_VEDK_AgreementIDTbl" Association="VEDKModel.FK_VEDK_Product_VEDK_AgreementIDTbl">
+      <End Role="VEDK_AgreementIDTbl" EntitySet="VEDK_AgreementIDTbl" />
+      <End Role="VEDK_Product" EntitySet="VEDK_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEDK_Product_VEDK_Region" Association="VEDKModel.FK_VEDK_Product_VEDK_Region">
+      <End Role="VEDK_Region" EntitySet="VEDK_Region" />
+      <End Role="VEDK_Product" EntitySet="VEDK_Product" />
+    </AssociationSet>
+    <EntitySet Name="VEDK_Price" EntityType="VEDKModel.VEDK_Price" />
+    <AssociationSet Name="FK_VEDK_Price_VEDK_Product" Association="VEDKModel.FK_VEDK_Price_VEDK_Product">
+      <End Role="VEDK_Product" EntitySet="VEDK_Product" />
+      <End Role="VEDK_Price" EntitySet="VEDK_Price" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEDK_Price_VEDK_SupplierTbl" Association="VEDKModel.FK_VEDK_Price_VEDK_SupplierTbl">
+      <End Role="VEDK_SupplierTbl" EntitySet="VEDK_SupplierTbl" />
+      <End Role="VEDK_Price" EntitySet="VEDK_Price" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="VEDK_ProductCategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="ProductGroupMember" Type="Int32" />
+    <Property Name="FileName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="VEDK_ProductGroup" Relationship="VEDKModel.FK_VEDK_ProductCategory_VEDK_ProductGroup" FromRole="VEDK_ProductCategory" ToRole="VEDK_ProductGroup" />
+    <Property Type="Int32" Name="SortingOrder" />
+    <NavigationProperty Name="VEDK_AgreementIDTbl" Relationship="VEDKModel.FK_VEDK_AgreementIDTbl_VEDK_ProductCategory" FromRole="VEDK_ProductCategory" ToRole="VEDK_AgreementIDTbl" />
+  </EntityType>
+  <EntityType Name="VEDK_ProductGroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="VEDK_ProductCategory" Relationship="VEDKModel.FK_VEDK_ProductCategory_VEDK_ProductGroup" FromRole="VEDK_ProductGroup" ToRole="VEDK_ProductCategory" />
+  </EntityType>
+  <EntityType Name="VEDK_Region">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="RegionName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Type="String" Name="FileName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VEDK_Product" Relationship="VEDKModel.FK_VEDK_Product_VEDK_Region" FromRole="VEDK_Region" ToRole="VEDK_Product" />
+  </EntityType>
+  <EntityType Name="VEDK_SupplierTbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Type="Guid" Name="SupplierGUID" />
+    <Property Type="Int32" Name="Active" />
+    <NavigationProperty Name="VEDK_Price" Relationship="VEDKModel.FK_VEDK_Price_VEDK_SupplierTbl" FromRole="VEDK_SupplierTbl" ToRole="VEDK_Price" />
+  </EntityType>
+  <Association Name="FK_VEDK_ProductCategory_VEDK_ProductGroup">
+    <End Role="VEDK_ProductGroup" Type="VEDKModel.VEDK_ProductGroup" Multiplicity="0..1" />
+    <End Role="VEDK_ProductCategory" Type="VEDKModel.VEDK_ProductCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEDK_ProductGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="VEDK_ProductCategory">
+        <PropertyRef Name="ProductGroupMember" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VEDK_AgreementTbl">
+    <Key>
+      <PropertyRef Name="AgreementId" />
+    </Key>
+    <Property Type="Int32" Name="AgreementId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Park_GSRN" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Startdato" Nullable="false" />
+    <Property Type="DateTime" Name="Slutdato" Nullable="false" />
+    <Property Type="DateTime" Name="Dato_prissikring_dato" Nullable="false" />
+    <Property Type="Decimal" Name="Pris" Nullable="false" Precision="38" Scale="20" />
+    <Property Type="Int32" Name="ProduktId" Nullable="false" />
+    <Property Type="Int32" Name="Afregningstype" Nullable="false" />
+    <Property Type="String" Name="Produktnavn" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Agreement_ID" Nullable="false" />
+    <Property Type="Int32" Name="Price_ID" Nullable="false" />
+    <Property Type="String" Name="PirceTransactionGUID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Transactions_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Contract_Ref__ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VD_ID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NEAS_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Agreement_Type" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Shareholder_ID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Supplier_ID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="Expected_Production" Nullable="false" Precision="38" Scale="20" />
+    <Property Type="DateTime" Name="Dato_prissikring" Nullable="false" />
+    <Property Type="String" Name="Sidst_rettet_af" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Manual_line" Nullable="false" />
+    <Property Type="String" Name="Verificeret_af_modparten" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VEDK_AgreementIDTbl">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Fastpris" Nullable="false" />
+    <Property Type="String" Name="Payback_Code" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Payback_Agreement" Nullable="false" />
+    <Property Type="Byte" Name="Balance_irrelevant" Nullable="false" />
+    <Property Type="Byte" Name="Ehandel_relevant" Nullable="false" />
+    <Property Type="String" Name="MemoDescription" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MemoName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Portefolje_irrelevant" Nullable="false" />
+    <Property Type="String" Name="ProductCategory" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SettlementReportName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VEDK_ProductCategory" Relationship="VEDKModel.FK_VEDK_AgreementIDTbl_VEDK_ProductCategory" FromRole="VEDK_AgreementIDTbl" ToRole="VEDK_ProductCategory" />
+    <NavigationProperty Name="VEDK_Product" Relationship="VEDKModel.FK_VEDK_Product_VEDK_AgreementIDTbl" FromRole="VEDK_AgreementIDTbl" ToRole="VEDK_Product" />
+  </EntityType>
+  <Association Name="FK_VEDK_AgreementIDTbl_VEDK_ProductCategory">
+    <End Type="VEDKModel.VEDK_ProductCategory" Role="VEDK_ProductCategory" Multiplicity="1" />
+    <End Type="VEDKModel.VEDK_AgreementIDTbl" Role="VEDK_AgreementIDTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEDK_ProductCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="VEDK_AgreementIDTbl">
+        <PropertyRef Name="ProductCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MillLog">
+    <Key>
+      <PropertyRef Name="MillLogID" />
+    </Key>
+    <Property Type="Int32" Name="MillLogID" Nullable="false" />
+    <Property Type="DateTime" Name="DateTime" />
+    <Property Type="String" Name="GSRN" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Single" Name="EffectReal" />
+    <Property Type="Single" Name="EffectNorm" />
+    <Property Type="Single" Name="WindSpeed" />
+    <Property Type="Int16" Name="Status" />
+  </EntityType>
+  <EntityType Name="EnerginetDKData">
+    <Key>
+      <PropertyRef Name="RecordId" />
+    </Key>
+    <Property Type="Int32" Name="RecordId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Datetime" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CentralPowerDK1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CentralPowerDK2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LocaCHPDK1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LocalCHPDK2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="WindTurbinesDK1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="WindTurbinesDK2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExchangeJyllandNorge" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExchangeJyllandSverige" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExchangeJyllandTyskland" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExcahngeSjaellandSverige" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExchangeSjaellandTyskland" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExchangeBornholmSverige" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExchangeFynSjaelland" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TemperatureMalling" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="WindSpeedMalling" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CO2Emission" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VEDK_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Comments" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="DateCreated" />
+    <Property Type="DateTime" Name="DataUpdated" />
+    <Property Type="Boolean" Name="Administrator" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VEDK_Password">
+    <Key>
+      <PropertyRef Name="PassId" />
+    </Key>
+    <Property Type="Int32" Name="PassId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Reference" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Login" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated" />
+    <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VEDK_Product">
+    <Key>
+      <PropertyRef Name="VEDK_ProductID" />
+    </Key>
+    <Property Type="Int32" Name="VEDK_ProductID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="productId" />
+    <Property Type="String" Name="productName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="productStartDate" />
+    <Property Type="DateTime" Name="productEndDate" />
+    <Property Type="String" Name="productDescription" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="regionId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="balanceIncluded" Nullable="false" />
+    <Property Type="Int32" Name="ProductTypeID" Nullable="false" />
+    <Property Type="String" Name="ProductDescriptionLink" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+    <Property Type="String" Name="Shortname" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Shortdescription" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExclusiveSupplierID" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="isFastpris" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TilbagekøbsProductTypeID" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VEDK_AgreementIDTbl" Relationship="VEDKModel.FK_VEDK_Product_VEDK_AgreementIDTbl" FromRole="VEDK_Product" ToRole="VEDK_AgreementIDTbl" />
+    <NavigationProperty Name="VEDK_Region" Relationship="VEDKModel.FK_VEDK_Product_VEDK_Region" FromRole="VEDK_Product" ToRole="VEDK_Region" />
+    <NavigationProperty Name="VEDK_Price" Relationship="VEDKModel.FK_VEDK_Price_VEDK_Product" FromRole="VEDK_Product" ToRole="VEDK_Price" />
+  </EntityType>
+  <Association Name="FK_VEDK_Product_VEDK_AgreementIDTbl">
+    <End Type="VEDKModel.VEDK_AgreementIDTbl" Role="VEDK_AgreementIDTbl" Multiplicity="1" />
+    <End Type="VEDKModel.VEDK_Product" Role="VEDK_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEDK_AgreementIDTbl">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="VEDK_Product">
+        <PropertyRef Name="ProductTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEDK_Product_VEDK_Region">
+    <End Type="VEDKModel.VEDK_Region" Role="VEDK_Region" Multiplicity="1" />
+    <End Type="VEDKModel.VEDK_Product" Role="VEDK_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEDK_Region">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="VEDK_Product">
+        <PropertyRef Name="regionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VEDK_Price">
+    <Key>
+      <PropertyRef Name="RecordID" />
+    </Key>
+    <Property Type="Int32" Name="RecordID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="PriceID" />
+    <Property Type="Int32" Name="ProductID" />
+    <Property Type="Decimal" Name="Price" Precision="18" Scale="5" />
+    <Property Type="Guid" Name="transactionGUID" />
+    <Property Type="DateTime" Name="CreateDate" />
+    <Property Type="Int32" Name="ProductPriceID" />
+    <Property Type="String" Name="SupplierID" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="VEDK_ProductID" Nullable="false" />
+    <NavigationProperty Name="VEDK_Product" Relationship="VEDKModel.FK_VEDK_Price_VEDK_Product" FromRole="VEDK_Price" ToRole="VEDK_Product" />
+    <NavigationProperty Name="VEDK_SupplierTbl" Relationship="VEDKModel.FK_VEDK_Price_VEDK_SupplierTbl" FromRole="VEDK_Price" ToRole="VEDK_SupplierTbl" />
+  </EntityType>
+  <Association Name="FK_VEDK_Price_VEDK_Product">
+    <End Type="VEDKModel.VEDK_Product" Role="VEDK_Product" Multiplicity="1" />
+    <End Type="VEDKModel.VEDK_Price" Role="VEDK_Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEDK_Product">
+        <PropertyRef Name="VEDK_ProductID" />
+      </Principal>
+      <Dependent Role="VEDK_Price">
+        <PropertyRef Name="VEDK_ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEDK_Price_VEDK_SupplierTbl">
+    <End Type="VEDKModel.VEDK_SupplierTbl" Role="VEDK_SupplierTbl" Multiplicity="0..1" />
+    <End Type="VEDKModel.VEDK_Price" Role="VEDK_Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEDK_SupplierTbl">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="VEDK_Price">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

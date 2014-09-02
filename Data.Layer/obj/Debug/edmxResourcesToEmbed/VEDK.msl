@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VEDKModelStoreContainer" CdmEntityContainer="VEDKEntities">
+    <EntitySetMapping Name="VEDK_ProductCategory">
+      <EntityTypeMapping TypeName="VEDKModel.VEDK_ProductCategory">
+        <MappingFragment StoreEntitySet="VEDK_ProductCategory">
+          <ScalarProperty Name="SortingOrder" ColumnName="SortingOrder" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductGroupMember" ColumnName="ProductGroupMember" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEDK_ProductGroup">
+      <EntityTypeMapping TypeName="VEDKModel.VEDK_ProductGroup">
+        <MappingFragment StoreEntitySet="VEDK_ProductGroup">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEDK_Region">
+      <EntityTypeMapping TypeName="VEDKModel.VEDK_Region">
+        <MappingFragment StoreEntitySet="VEDK_Region">
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEDK_SupplierTbl">
+      <EntityTypeMapping TypeName="VEDKModel.VEDK_SupplierTbl">
+        <MappingFragment StoreEntitySet="VEDK_SupplierTbl">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="SupplierGUID" ColumnName="SupplierGUID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEDK_AgreementTbl">
+      <EntityTypeMapping TypeName="VEDKModel.VEDK_AgreementTbl">
+        <MappingFragment StoreEntitySet="VEDK_AgreementTbl">
+          <ScalarProperty Name="Verificeret_af_modparten" ColumnName="Verificeret af modparten" />
+          <ScalarProperty Name="Manual_line" ColumnName="Manual line" />
+          <ScalarProperty Name="Sidst_rettet_af" ColumnName="Sidst rettet af" />
+          <ScalarProperty Name="Dato_prissikring" ColumnName="Dato prissikring" />
+          <ScalarProperty Name="Expected_Production" ColumnName="Expected Production" />
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier ID" />
+          <ScalarProperty Name="Shareholder_ID" ColumnName="Shareholder ID" />
+          <ScalarProperty Name="Agreement_Type" ColumnName="Agreement Type" />
+          <ScalarProperty Name="NEAS_ID" ColumnName="NEAS_ID" />
+          <ScalarProperty Name="VD_ID" ColumnName="VD-ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Contract_Ref__ID" ColumnName="Contract Ref_ ID" />
+          <ScalarProperty Name="Transactions_ID" ColumnName="Transactions ID" />
+          <ScalarProperty Name="PirceTransactionGUID" ColumnName="PirceTransactionGUID" />
+          <ScalarProperty Name="Price_ID" ColumnName="Price ID" />
+          <ScalarProperty Name="Agreement_ID" ColumnName="Agreement ID" />
+          <ScalarProperty Name="Produktnavn" ColumnName="Produktnavn" />
+          <ScalarProperty Name="Afregningstype" ColumnName="Afregningstype" />
+          <ScalarProperty Name="ProduktId" ColumnName="ProduktId" />
+          <ScalarProperty Name="Pris" ColumnName="Pris" />
+          <ScalarProperty Name="Dato_prissikring_dato" ColumnName="Dato prissikring dato" />
+          <ScalarProperty Name="Slutdato" ColumnName="Slutdato" />
+          <ScalarProperty Name="Startdato" ColumnName="Startdato" />
+          <ScalarProperty Name="Park_GSRN" ColumnName="Park_GSRN" />
+          <ScalarProperty Name="AgreementId" ColumnName="AgreementId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEDK_AgreementIDTbl">
+      <EntityTypeMapping TypeName="VEDKModel.VEDK_AgreementIDTbl">
+        <MappingFragment StoreEntitySet="VEDK_AgreementIDTbl">
+          <ScalarProperty Name="SettlementReportName" ColumnName="SettlementReportName" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="Portefolje_irrelevant" ColumnName="Portefolje_irrelevant" />
+          <ScalarProperty Name="MemoName" ColumnName="MemoName" />
+          <ScalarProperty Name="MemoDescription" ColumnName="MemoDescription" />
+          <ScalarProperty Name="Ehandel_relevant" ColumnName="Ehandel relevant" />
+          <ScalarProperty Name="Balance_irrelevant" ColumnName="Balance irrelevant" />
+          <ScalarProperty Name="Payback_Agreement" ColumnName="Payback Agreement" />
+          <ScalarProperty Name="Payback_Code" ColumnName="Payback Code" />
+          <ScalarProperty Name="Fastpris" ColumnName="Fastpris" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MillLogs">
+      <EntityTypeMapping TypeName="VEDKModel.MillLog">
+        <MappingFragment StoreEntitySet="MillLog">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="WindSpeed" ColumnName="WindSpeed" />
+          <ScalarProperty Name="EffectNorm" ColumnName="EffectNorm" />
+          <ScalarProperty Name="EffectReal" ColumnName="EffectReal" />
+          <ScalarProperty Name="GSRN" ColumnName="GSRN" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="MillLogID" ColumnName="MillLogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnerginetDKDatas">
+      <EntityTypeMapping TypeName="VEDKModel.EnerginetDKData">
+        <MappingFragment StoreEntitySet="EnerginetDKData">
+          <ScalarProperty Name="CO2Emission" ColumnName="CO2Emission" />
+          <ScalarProperty Name="WindSpeedMalling" ColumnName="WindSpeedMalling" />
+          <ScalarProperty Name="TemperatureMalling" ColumnName="TemperatureMalling" />
+          <ScalarProperty Name="ExchangeFynSjaelland" ColumnName="ExchangeFynSjaelland" />
+          <ScalarProperty Name="ExchangeBornholmSverige" ColumnName="ExchangeBornholmSverige" />
+          <ScalarProperty Name="ExchangeSjaellandTyskland" ColumnName="ExchangeSjaellandTyskland" />
+          <ScalarProperty Name="ExcahngeSjaellandSverige" ColumnName="ExcahngeSjaellandSverige" />
+          <ScalarProperty Name="ExchangeJyllandTyskland" ColumnName="ExchangeJyllandTyskland" />
+          <ScalarProperty Name="ExchangeJyllandSverige" ColumnName="ExchangeJyllandSverige" />
+          <ScalarProperty Name="ExchangeJyllandNorge" ColumnName="ExchangeJyllandNorge" />
+          <ScalarProperty Name="WindTurbinesDK2" ColumnName="WindTurbinesDK2" />
+          <ScalarProperty Name="WindTurbinesDK1" ColumnName="WindTurbinesDK1" />
+          <ScalarProperty Name="LocalCHPDK2" ColumnName="LocalCHPDK2" />
+          <ScalarProperty Name="LocaCHPDK1" ColumnName="LocaCHPDK1" />
+          <ScalarProperty Name="CentralPowerDK2" ColumnName="CentralPowerDK2" />
+          <ScalarProperty Name="CentralPowerDK1" ColumnName="CentralPowerDK1" />
+          <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+          <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEDK_Users">
+      <EntityTypeMapping TypeName="VEDKModel.VEDK_User">
+        <MappingFragment StoreEntitySet="VEDK_Users">
+          <ScalarProperty Name="Administrator" ColumnName="Administrator" />
+          <ScalarProperty Name="DataUpdated" ColumnName="DataUpdated" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEDK_Password">
+      <EntityTypeMapping TypeName="VEDKModel.VEDK_Password">
+        <MappingFragment StoreEntitySet="VEDK_Password">
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="PassId" ColumnName="PassId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEDK_Product">
+      <EntityTypeMapping TypeName="VEDKModel.VEDK_Product">
+        <MappingFragment StoreEntitySet="VEDK_Product">
+          <ScalarProperty Name="TilbagekøbsProductTypeID" ColumnName="TilbagekøbsProductTypeID" />
+          <ScalarProperty Name="isFastpris" ColumnName="isFastpris" />
+          <ScalarProperty Name="ExclusiveSupplierID" ColumnName="ExclusiveSupplierID" />
+          <ScalarProperty Name="Shortdescription" ColumnName="Shortdescription" />
+          <ScalarProperty Name="Shortname" ColumnName="Shortname" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ProductDescriptionLink" ColumnName="ProductDescriptionLink" />
+          <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+          <ScalarProperty Name="balanceIncluded" ColumnName="balanceIncluded" />
+          <ScalarProperty Name="regionId" ColumnName="regionId" />
+          <ScalarProperty Name="productDescription" ColumnName="productDescription" />
+          <ScalarProperty Name="productEndDate" ColumnName="productEndDate" />
+          <ScalarProperty Name="productStartDate" ColumnName="productStartDate" />
+          <ScalarProperty Name="productName" ColumnName="productName" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="VEDK_ProductID" ColumnName="VEDK_ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEDK_Price">
+      <EntityTypeMapping TypeName="VEDKModel.VEDK_Price">
+        <MappingFragment StoreEntitySet="VEDK_Price">
+          <ScalarProperty Name="VEDK_ProductID" ColumnName="VEDK_ProductID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="ProductPriceID" ColumnName="ProductPriceID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="transactionGUID" ColumnName="transactionGUID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="PriceID" ColumnName="PriceID" />
+          <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

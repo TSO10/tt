@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="VEDK_Dashboard.siteWebService" CodeBehind="siteWebService.svc.cs" %>
